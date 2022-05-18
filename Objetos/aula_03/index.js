@@ -34,7 +34,7 @@
     //Object.assign (des, any)
 
     const produtoBase2 = {nome: 'Violão', preco: 250};
-    const piano2 = Object.assign({}, produtoBase2);
+    const piano2 = Object.assign({}, produtoBase2 );
 
     piano2.nome = 'Piano';
     piano2.preco = '1000';
