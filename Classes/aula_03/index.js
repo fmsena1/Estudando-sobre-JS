@@ -20,3 +20,43 @@ class DispositivoEletronico{
     }
 }
 
+class Smartphone extends DispositivoEletronico {
+    constructor(nome, cor, modelo){
+        super(nome);
+        this.cor = cor;
+        this.modelo = modelo;
+    }
+}
+
+class Smartwatch extends DispositivoEletronico {
+    constructor(nome, cor, modelo, configWifi){
+        super(nome);
+        this.cor = cor;
+        this.modelo = modelo;
+        this.configWifi = configWifi;
+        this.ligado = false;
+    }
+    ligarWifi(){
+        if(this.Wifi){
+            console.log(`${this.configWifi} está ligado.`);
+            return;
+        }
+        this.Wifi = true;
+    }
+
+    desligarWifi(){
+        if(!this.Wifi){
+            console.log(`${this.configWifi} está desligado.`);
+            return;
+        }
+        this.Wifi = true;
+    }
+}
+
+const s1 = new Smartphone('Iphone', 'Branco', 'S11');
+const t1 = new Smartwatch('Apple Watch ', 'Preto', 'Series 7', 'Wi-fi');
+t1.ligarWifi();
+t1.ligarWifi();
+s1.ligar();
+console.log(t1);
+console.log(s1);
