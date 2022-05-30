@@ -12,7 +12,4 @@ route.post('/', homeController.trataPost);
 route.get('/contato', contatoController.pageContact);
 
 
-
-
-
 module.exports = route;
