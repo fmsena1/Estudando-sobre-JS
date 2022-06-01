@@ -1,7 +1,10 @@
 exports.homePage = (req, res) =>{
-    console.log('error', req.flash('info'));
     //res.render = renderizar page 
-    res.render('index');
+    res.render('index', {
+        titulo: 'Título da Página',
+        numeros: [0, 1, 2, 3]
+
+    });
     return;
    
 }

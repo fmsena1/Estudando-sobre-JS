@@ -11,8 +11,14 @@
 <body>
 
   <section class="container">
-    <h1>Lorem ipsum dolor sit amet</h1>
+    <h1>
+      <% if(typeof titulo !== 'undefined'){  %>
+        <%= titulo %>
+      <% }%>
+
+    </h1>
     <form action="/" method="post">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <label>Nome do cliente</label>
       <input type="text" name="cliente">
       <button>Submit</button>

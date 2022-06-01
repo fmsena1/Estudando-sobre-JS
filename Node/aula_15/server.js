@@ -17,10 +17,14 @@ const flasgMsg = require('connect-flash');
 
 const routes = require('./routes'); 
 const path = require('path');
-const {middlewareGlobal} = require('./src/middlewares/middleware');
+const helmet = require('helmet');
+const csrf = require('csurf');
+const {middlewareGlobal, checkCsrfError, csrfMiddlewre} = require('./src/middlewares/middleware');
 
+app.use(helmet());
 
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 //Conteúdo estático
 app.use(express.static(path.resolve(__dirname, 'public')));
 //Configurações da session
@@ -43,7 +47,10 @@ app.use(flasgMsg());
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 //Instalando EJS = npm i ejs
 app.set('view engine', 'ejs');
+app.use(csrf());
 app.use(middlewareGlobal);
+app.use(checkCsrfError);
+app.use(csrfMiddlewre);
 app.use(routes);
 //Quando o aplicativo estiver pronto executara uma função
 app.on('pronto', () =>{
